@@ -8,12 +8,37 @@
 </head>
 <body>
     <header>
-        <h1>Elige tu partido político</h1>
+        <h1>Elige tu partido</h1>
     </header>
     <main>
-        <button id="party1">Juntos x el Cambio</button>
-        <button id="party2">Hacemos x Nuestro País</button>
-        <button id="party3">Frente de Izquierda</button>
+        <button id="party1" onclick="selectParty(1)">Juntos x el Cambio</button>
+        <button id="party2" onclick="selectParty(2)">Hacemos x Nuestro País</button>
+        <button id="party3" onclick="selectParty(3)">Frente de Izquierda</button>
+        <button id="confirm-button" onclick="confirmVote()" style="display: none;">Confirmar Voto</button>
+        <p id="vote-message" style="display: none;">Gracias por votar</p>
     </main>
+    <script>
+        let selectedParty = 0; // Variable para guardar el partido seleccionado
+
+        function selectParty(partyNumber) {
+            selectedParty = partyNumber;
+
+            // Cambiar el color del partido seleccionado
+            document.getElementById(`party${partyNumber}`).style.backgroundColor = "lightgreen";
+
+            // Mostrar el botón de confirmación
+            document.getElementById('confirm-button').style.display = 'block';
+        }
+
+        function confirmVote() {
+            // Aquí puedes registrar el voto en tu sistema y luego mostrar el mensaje de agradecimiento.
+            // Por ahora, simplemente mostraremos el mensaje de agradecimiento.
+            document.getElementById('vote-message').style.display = 'block';
+
+            // También puedes deshabilitar los botones de selección si lo deseas.
+            document.getElementById(`party${selectedParty}`).disabled = true;
+            document.getElementById('confirm-button').disabled = true;
+        }
+    </script>
 </body>
 </html>
