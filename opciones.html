@@ -18,27 +18,40 @@
         <p id="vote-message" style="display: none;">Gracias por votar</p>
     </main>
     <script>
-        let selectedParty = 0; // Variable para guardar el partido seleccionado
+        // Función para modificar el archivo JSON
+        function modifyJSON(votedParty) {
+            // Simulación del contenido del archivo infovotos.json
+            var infoVotos = {
+                JuntosxelCambio: 0,
+                HacemosxNuestroPaís: 0,
+                FrentedeIzquierda: 0
+            };
 
-        function selectParty(partyNumber) {
-            selectedParty = partyNumber;
+            // Incrementar el contador del partido votado
+            infoVotos[votedParty]++;
 
-            // Cambiar el color del partido seleccionado
-            document.getElementById(`party${partyNumber}`).style.backgroundColor = "lightgreen";
+            // Convertir a JSON
+            var jsonContent = JSON.stringify(infoVotos);
 
-            // Mostrar el botón de confirmación
-            document.getElementById('confirm-button').style.display = 'block';
+            // Envía el JSON actualizado al servidor (esto debe ser configurado en tu servidor)
+            // Puedes utilizar la API fetch para enviar datos al servidor y actualizar el archivo infovotos.json.
         }
 
-        function confirmVote() {
-            // Aquí puedes registrar el voto en tu sistema y luego mostrar el mensaje de agradecimiento.
-            // Por ahora, simplemente mostraremos el mensaje de agradecimiento.
-            document.getElementById('vote-message').style.display = 'block';
+        // Evento al hacer clic en un botón de partido
+        document.getElementById("party1").addEventListener("click", function() {
+            modifyJSON("JuntosxelCambio");
+            alert("¡Gracias por votar por Juntos x el Cambio!");
+        });
 
-            // También puedes deshabilitar los botones de selección si lo deseas.
-            document.getElementById(`party${selectedParty}`).disabled = true;
-            document.getElementById('confirm-button').disabled = true;
-        }
+        document.getElementById("party2").addEventListener("click", function() {
+            modifyJSON("HacemosxNuestroPaís");
+            alert("¡Gracias por votar por Hacemos x Nuestro País!");
+        });
+
+        document.getElementById("party3").addEventListener("click", function() {
+            modifyJSON("FrentedeIzquierda");
+            alert("¡Gracias por votar por Frente de Izquierda!");
+        });
     </script>
 </body>
 </html>
