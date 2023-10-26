@@ -3,6 +3,10 @@ body {
     background-color: #f0f0f0;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 header {
@@ -16,13 +20,16 @@ h1 {
     font-size: 24px;
 }
 
-p {
-    font-size: 16px;
-}
-
 main {
     text-align: center;
-    margin: 20px;
+}
+
+.party-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 button {
@@ -37,6 +44,25 @@ button {
 
 button:hover {
     background-color: #0A5499; /* Cambio de color al pasar el mouse */
+}
+
+.selected {
+    background-color: lightgreen; /* Cambio de color para el partido seleccionado */
+}
+
+#confirm-button {
+    background-color: #1877F2;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#confirm-button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
 }
 
 /* Estilos adicionales para personalizar el diseño */
