@@ -8,50 +8,12 @@
 </head>
 <body>
     <header>
-        <h1>Elige tu partido</h1>
+        <h1>Elige tu partido político</h1>
     </header>
     <main>
-        <button id="party1" onclick="selectParty(1)">Juntos x el Cambio</button>
-        <button id="party2" onclick="selectParty(2)">Hacemos x Nuestro País</button>
-        <button id="party3" onclick="selectParty(3)">Frente de Izquierda</button>
-        <button id="confirm-button" onclick="confirmVote()" style="display: none;">Confirmar Voto</button>
-        <p id="vote-message" style="display: none;">Gracias por votar</p>
+        <button id="party1">Juntos x el Cambio</button>
+        <button id="party2">Hacemos x Nuestro País</button>
+        <button id="party3">Frente de Izquierda</button>
     </main>
-    <script>
-        // Función para modificar el archivo JSON
-        function modifyJSON(votedParty) {
-            // Simulación del contenido del archivo infovotos.json
-            var infoVotos = {
-                JuntosxelCambio: 0,
-                HacemosxNuestroPaís: 0,
-                FrentedeIzquierda: 0
-            };
-
-            // Incrementar el contador del partido votado
-            infoVotos[votedParty]++;
-
-            // Convertir a JSON
-            var jsonContent = JSON.stringify(infoVotos);
-
-            // Envía el JSON actualizado al servidor (esto debe ser configurado en tu servidor)
-            // Puedes utilizar la API fetch para enviar datos al servidor y actualizar el archivo infovotos.json.
-        }
-
-        // Evento al hacer clic en un botón de partido
-        document.getElementById("party1").addEventListener("click", function() {
-            modifyJSON("JuntosxelCambio");
-            alert("¡Gracias por votar por Juntos x el Cambio!");
-        });
-
-        document.getElementById("party2").addEventListener("click", function() {
-            modifyJSON("HacemosxNuestroPaís");
-            alert("¡Gracias por votar por Hacemos x Nuestro País!");
-        });
-
-        document.getElementById("party3").addEventListener("click", function() {
-            modifyJSON("FrentedeIzquierda");
-            alert("¡Gracias por votar por Frente de Izquierda!");
-        });
-    </script>
 </body>
 </html>
