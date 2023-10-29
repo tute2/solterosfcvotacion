@@ -4,16 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Opciones de Votación</title>
+    <title>Votaciones Solteros FC - Opciones</title>
 </head>
 <body>
     <header>
-        <h1>Elige tu partido político</h1>
+        <h1>Elige tu partido</h1>
     </header>
     <main>
-        <button id="party1">Juntos x el Cambio</button>
-        <button id="party2">Hacemos x Nuestro País</button>
-        <button id="party3">Frente de Izquierda</button>
+        <div class="party-card">
+            <img src="IMG-PARTIDO1.JPG" alt="Partido 1">
+            <h2>Partido 1</h2>
+            <button onclick="seleccionarPartido('Partido 1')">Seleccionar</button>
+        </div>
+        <div class="party-card">
+            <img src="IMG-PARTIDO2.JPG" alt="Partido 2">
+            <h2>Partido 2</h2>
+            <button onclick="seleccionarPartido('Partido 2')">Seleccionar</button>
+        </div>
+        <div class="party-card">
+            <img src="IMG-PARTIDO3.JPG" alt="Partido 3">
+            <h2>Partido 3</h2>
+            <button onclick="seleccionarPartido('Partido 3')">Seleccionar</button>
+        </div>
+        <div class="party-card">
+            <img src="IMG-PARTIDO4.JPG" alt="Partido 4">
+            <h2>Partido 4</h2>
+            <button onclick="seleccionarPartido('Partido 4')">Seleccionar</button>
+        </div>
+        <div class="party-card">
+            <img src="IMG-PARTIDO5.JPG" alt="Partido 5">
+            <h2>Partido 5</h2>
+            <button onclick="seleccionarPartido('Partido 5')">Seleccionar</button>
+        </div>
+        <a href="agradecimiento.html">Confirmar</a>
     </main>
+
+    <script>
+        function seleccionarPartido(partido) {
+            // Aquí puedes implementar la lógica para registrar la selección del partido.
+            // Puedes utilizar JavaScript para manejar esta acción.
+        }
+    </script>
 </body>
 </html>
