@@ -36,4 +36,22 @@ button:hover {
     background-color: #0A5499; /* Cambio de color al pasar el mouse */
 }
 
-/* Estilos adicionales para personalizar el diseño */
+.party {
+    background-color: white;
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Sombras con bordes redondeados */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.party img {
+    max-width: 100%;
+}
+
+.party h2 {
+    font-size: 18px;
+    margin-top: 10px;
+}
