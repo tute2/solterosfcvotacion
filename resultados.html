@@ -21,5 +21,18 @@
         </section>
         <!-- Repite esto para cada partido -->
     </main>
+    <script>
+        // Escucha los mensajes enviados desde opciones.html
+        window.addEventListener('message', function(event) {
+            const partidoSeleccionado = event.data;
+            // Actualiza los votos en función de la información recibida
+            const votosSpan = document.getElementById(`votos${index}`);
+            if (votosSpan) {
+                let currentVotes = parseInt(votosSpan.textContent);
+                currentVotes++;
+                votosSpan.textContent = currentVotes;
+            }
+        });
+    </script>
 </body>
 </html>
