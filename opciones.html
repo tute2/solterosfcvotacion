@@ -34,34 +34,40 @@
     </main>
     <button id="confirm-button">Confirmar Voto</button>
     <script>
-        const partySections = document.querySelectorAll('.party');
-        let selectedParty = null;
+    const partySections = document.querySelectorAll('.party');
+    let selectedParty = null;
 
-        partySections.forEach((party, index) => {
-            party.addEventListener('click', () => {
-                // Deselecciona el partido anteriormente seleccionado, si lo hay.
-                if (selectedParty) {
-                    selectedParty.classList.remove('selected');
-                }
-                // Marca el partido actual como seleccionado.
-                party.classList.add('selected');
-                selectedParty = party;
-            });
-        });
-
-        // Agregamos la lógica para el botón "Confirmar Voto"
-        const confirmButton = document.getElementById('confirm-button');
-
-        confirmButton.addEventListener('click', () => {
+    partySections.forEach((party, index) => {
+        party.addEventListener('click', () => {
             if (selectedParty) {
-                const likeCountElement = selectedParty.querySelector('.like-count');
-                let currentLikes = parseInt(likeCountElement.textContent);
-                currentLikes++;
-                likeCountElement.textContent = currentLikes;
-            } else {
-                alert('Por favor, selecciona un partido antes de confirmar tu voto.');
+                selectedParty.classList.remove('selected');
             }
+            party.classList.add('selected');
+            selectedParty = party;
         });
-    </script>
+    });
+
+    const confirmButton = document.getElementById('confirm-button');
+
+    confirmButton.addEventListener('click', () => {
+        if (selectedParty) {
+            const likeCountElement = selectedParty.querySelector('.like-count');
+            let currentLikes = parseInt(likeCountElement.textContent);
+            currentLikes++;
+            likeCountElement.textContent = currentLikes;
+            
+            // Actualiza la página de resultados
+            const partidoSeleccionado = selectedParty.querySelector('h2').textContent;
+            const votosSpan = document.getElementById(`votos${index}`);
+            if (votosSpan) {
+                let currentVotes = parseInt(votosSpan.textContent);
+                currentVotes++;
+                votosSpan.textContent = currentVotes;
+            }
+        } else {
+            alert('Por favor, selecciona un partido antes de confirmar tu voto.');
+        }
+    });
+</script>
 </body>
 </html>
