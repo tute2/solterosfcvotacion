@@ -51,27 +51,20 @@
     const confirmButton = document.getElementById('confirm-button');
 
     confirmButton.addEventListener('click', () => {
-    if (selectedParty) {
-        const likeCountElement = selectedParty.querySelector('.like-count');
-        let currentLikes = parseInt(likeCountElement.textContent);
-        currentLikes++;
-        likeCountElement.textContent = currentLikes;
-        
-        // Actualiza la página de resultados
-        const partidoSeleccionado = selectedParty.querySelector('h2').textContent;
-        const votosSpan = document.getElementById(`votos${index}`);
-        if (votosSpan) {
-            let currentVotes = parseInt(votosSpan.textContent);
-            currentVotes++;
-            votosSpan.textContent = currentVotes;
+        if (selectedParty) {
+            const likeCountElement = selectedParty.querySelector('.like-count');
+            let currentLikes = parseInt(likeCountElement.textContent);
+            currentLikes++;
+            likeCountElement.textContent = currentLikes;
+            
+            // Actualiza la página de resultados
+            const partidoSeleccionado = selectedParty.querySelector('h2').textContent;
+            // Utiliza JavaScript para enviar la información al resultado.html
+            window.parent.postMessage(partidoSeleccionado, 'https://tusitio.github.io/resultados.html');
+        } else {
+            alert('Por favor, selecciona un partido antes de confirmar tu voto.');
         }
-
-        // Redirige a la página de agradecimiento
-        location.href = 'agradecimiento.html';
-    } else {
-        alert('Por favor, selecciona un partido antes de confirmar tu voto.');
-    }
-});
+    });
 </script>
 </body>
 </html>
