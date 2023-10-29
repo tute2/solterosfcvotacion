@@ -55,15 +55,9 @@
             let currentLikes = parseInt(likeCountElement.textContent);
             currentLikes++;
             likeCountElement.textContent = currentLikes;
-            
-            // Actualiza la página de resultados
-            const partidoSeleccionado = selectedParty.querySelector('h2').textContent;
-            const votosSpan = document.getElementById(`votos${index}`);
-            if (votosSpan) {
-                let currentVotes = parseInt(votosSpan.textContent);
-                currentVotes++;
-                votosSpan.textContent = currentVotes;
-            }
+
+            // Redirige al usuario a la página de agradecimiento
+            window.location.href = 'agradecimiento.html';
         } else {
             alert('Por favor, selecciona un partido antes de confirmar tu voto.');
         }
