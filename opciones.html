@@ -36,6 +36,7 @@
     <script>
     const partySections = document.querySelectorAll('.party');
     let selectedParty = null;
+    let hasVoted = false; // Agregamos una variable para rastrear si el usuario ya ha votado
 
     partySections.forEach((party, index) => {
         party.addEventListener('click', () => {
@@ -51,13 +52,18 @@
 
     confirmButton.addEventListener('click', () => {
         if (selectedParty) {
-            const likeCountElement = selectedParty.querySelector('.like-count');
-            let currentLikes = parseInt(likeCountElement.textContent);
-            currentLikes++;
-            likeCountElement.textContent = currentLikes;
+            if (!hasVoted) {
+                const likeCountElement = selectedParty.querySelector('.like-count');
+                let currentLikes = parseInt(likeCountElement.textContent);
+                currentLikes++;
+                likeCountElement.textContent = currentLikes;
+                hasVoted = true; // Marcamos que el usuario ha votado
 
-            // Redirige al usuario a la página de agradecimiento
-            window.location.href = 'agradecimiento.html';
+                // Redirige al usuario a la página de agradecimiento
+                window.location.href = 'agradecimiento.html';
+            } else {
+                alert('Ya has votado. ¡Gracias por tu participación!');
+            }
         } else {
             alert('Por favor, selecciona un partido antes de confirmar tu voto.');
         }
