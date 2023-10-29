@@ -49,7 +49,19 @@
             });
         });
 
-        // Lógica para el botón "Confirmar Voto" aquí...
+        // Agregamos la lógica para el botón "Confirmar Voto"
+        const confirmButton = document.getElementById('confirm-button');
+
+        confirmButton.addEventListener('click', () => {
+            if (selectedParty) {
+                const likeCountElement = selectedParty.querySelector('.like-count');
+                let currentLikes = parseInt(likeCountElement.textContent);
+                currentLikes++;
+                likeCountElement.textContent = currentLikes;
+            } else {
+                alert('Por favor, selecciona un partido antes de confirmar tu voto.');
+            }
+        });
     </script>
 </body>
 </html>
