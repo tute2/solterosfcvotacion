@@ -32,7 +32,7 @@
             <h2>Los Rugbiers</h2>
         </section>
     </main>
-    <button id="confirm-button">Confirmar Voto</button>
+    <button id="confirm-button" onclick="location.href='agradecimiento.html'">Confirmar Voto</button>
     <script>
     const partySections = document.querySelectorAll('.party');
     let selectedParty = null;
@@ -51,23 +51,27 @@
     const confirmButton = document.getElementById('confirm-button');
 
     confirmButton.addEventListener('click', () => {
-        if (selectedParty) {
-            if (!hasVoted) {
-                const likeCountElement = selectedParty.querySelector('.like-count');
-                let currentLikes = parseInt(likeCountElement.textContent);
-                currentLikes++;
-                likeCountElement.textContent = currentLikes;
-                hasVoted = true; // Marcamos que el usuario ha votado
-
-                // Redirige al usuario a la página de agradecimiento
-                window.location.href = 'agradecimiento.html';
-            } else {
-                alert('Ya has votado. ¡Gracias por tu participación!');
-            }
-        } else {
-            alert('Por favor, selecciona un partido antes de confirmar tu voto.');
+    if (selectedParty) {
+        const likeCountElement = selectedParty.querySelector('.like-count');
+        let currentLikes = parseInt(likeCountElement.textContent);
+        currentLikes++;
+        likeCountElement.textContent = currentLikes;
+        
+        // Actualiza la página de resultados
+        const partidoSeleccionado = selectedParty.querySelector('h2').textContent;
+        const votosSpan = document.getElementById(`votos${index}`);
+        if (votosSpan) {
+            let currentVotes = parseInt(votosSpan.textContent);
+            currentVotes++;
+            votosSpan.textContent = currentVotes;
         }
-    });
+
+        // Redirige a la página de agradecimiento
+        location.href = 'agradecimiento.html';
+    } else {
+        alert('Por favor, selecciona un partido antes de confirmar tu voto.');
+    }
+});
 </script>
 </body>
 </html>
