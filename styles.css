@@ -71,3 +71,15 @@ main {
 #confirm-button:hover {
     background-color: #0979b0;
 }
+
+/* Agregamos estilos para resaltar el partido seleccionado */
+.party.selected {
+    border: 2px solid #ff5722; /* Cambia el borde al seleccionar */
+    box-shadow: 0px 0px 10px rgba(255, 87, 34, 0.5); /* Cambia la sombra al seleccionar */
+}
+
+/* Desactiva el botón hasta que se seleccione un partido */
+#confirm-button[disabled] {
+    background-color: gray;
+    cursor: not-allowed;
+}
